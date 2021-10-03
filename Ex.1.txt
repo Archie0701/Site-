@@ -1,0 +1,11 @@
+1)
+SELECT full_name, appearances_overall "" FROM england_premier_league_players
+WHERE appearances_overall>=20;
+2)
+SELECT full_name, appearances_overall, goals_overall "" FROM england_premier_league_players
+WHERE appearances_overall>=20 AND goals_overall>10 ;
+3)
+SELECT full_name, goals_away "" FROM england_premier_league_players
+WHERE  goals_away>goals_home ;
+
+

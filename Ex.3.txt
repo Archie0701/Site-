@@ -1,0 +1,8 @@
+1)
+SELECT full_name, age, birthday_GMT "" FROM england_premier_league_players
+WHERE full_name like 'Mark%';
+
+2) 
+SELECT nationality,  count(nationality) FROM england_premier_league_players
+GROUP by nationality
+ORDER by count(nationality) DESC;
