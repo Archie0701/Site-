@@ -1,0 +1,34 @@
+1 question
+
+SELECT T.TrackId,T.Name,T.UnitPrice, G.Name from Track AS T 
+JOIN Genre as G
+ON T.GenreId= G.GenreId
+ORDER by T.Name;
+
+SELECT G.Name, count(T.Name) as "C" from Genre AS G 
+JOIN Track as T
+on G.GenreId=T.GenreId
+GROUP by G.Name
+ORDER by C DESC;
+
+
+2 question 
+
+SELECT C.FirstName, C.LastName, S.StateName, S.StateAbbr FROM Customer as C
+LEFT OUTER JOIN States as S
+on C.State=S.StateAbbr
+ORDER by C.LastName;
+
+
+3 question 
+
+SELECT C.FirstName ||' '|| C.LastName as "Customer Name", T.Name 
+FROM Customer as C
+LEFT JOIN Track as T, Invoice as I, InvoiceLine as L
+on C.CustomerId=I.CustomerId
+ AND I.InvoiceId =L.InvoiceId
+ AND L.TrackId= T.TrackId;
+
+
+
+
