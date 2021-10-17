@@ -1,0 +1,66 @@
+Problem 01
+A)
+SELECT C.first_name, C.last_name from customer as C 
+INTERSECT 
+SELECT S.first_name, S.last_name from staff as s;
+
+B)
+SELECT S.first_name, S.last_name from staff AS S
+EXCEPT
+SELECT C.first_name, C.last_name FROM customer as C;
+
+C)
+SELECT C.first_name, C.last_name from customer AS C
+UNION
+SELECT S.first_name, S.last_name FROM staff as S;
+
+
+Problem 02
+A)
+SELECT weekday, avg(countOFnum) "average", count(countOFnum) "count", min(countOFnum) "min", max(countOFnum) "max" 
+FROM ( 
+SELECT strftime('%w',date(rental_date)) "weekday", count(inventory_id) "countOFnum" 
+FROM rental 
+GROUP BY date(rental_date) 
+) 
+GROUP BY weekday;
+
+B)
+SELECT id, fn, ln
+FROM (
+SELECT r.customer_id "id", c.first_name "fn", c.last_name "ln"
+FROM customer as c 
+JOIN rental as r
+ON r.customer_id = c.customer_id
+order by r.return_date  DESC
+LIMIT 5)
+ORDER by id
+
+
+Problem 03
+A)
+SELECT ID, tits, des
+FROM( SELECT f.film_id "ID", f.title "tits", f.description "des"
+FROM film as f JOIN film_list as list
+On list.FID=f.film_id
+WHERE category ='Comedy'
+GROUP by tits
+)
+ORDER by ID
+
+B)
+SELECT ID, tits, des
+FROM( SELECT f.film_id "ID", f.title "tits", f.description "des"
+FROM film as f JOIN film_list as list, actor as A, film_actor as FA
+On list.FID=f.film_id
+AND A.actor_id=FA.actor_id
+AND f.film_id=FA.film_id
+WHERE A.first_name='JULIA'
+GROUP by tits
+)
+ORDER by ID
+
+
+
+
+

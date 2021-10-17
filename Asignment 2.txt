@@ -1,0 +1,33 @@
+Question 1
+1)
+SELECT full_name, appearances_overall "" FROM england_premier_league_players
+WHERE appearances_overall>=20;
+2)
+SELECT full_name, appearances_overall, goals_overall "" FROM england_premier_league_players
+WHERE appearances_overall>=20 AND goals_overall>10 ;
+3)
+SELECT full_name, goals_away "" FROM england_premier_league_players
+WHERE  goals_away>goals_home ;
+
+Question 2
+1)
+SELECT full_name, goals_overall "" FROM england_premier_league_players
+WHERE  goals_overall>10 ;
+2)
+SELECT MAX(minutes_played_overall),MIN(minutes_played_overall)
+FROM england_premier_league_players;
+
+Question 3
+1)
+SELECT full_name, age, birthday_GMT "" FROM england_premier_league_players
+WHERE full_name like 'Mark%';
+
+2) 
+
+SELECT nationality,  count(nationality) FROM england_premier_league_players
+GROUP by nationality
+ORDER by count(nationality) DESC;
+
+
+
+
